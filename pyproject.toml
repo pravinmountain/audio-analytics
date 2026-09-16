@@ -7,7 +7,9 @@ authors = [
     { name = "pravinmountain", email = "haligondapravin@gmail.com" }
 ]
 requires-python = ">=3.14"
-dependencies = []
+dependencies = [
+    "python-dotenv>=1.2.3",
+]
 
 [project.scripts]
 audio-analytics = "audio_analytics:main"

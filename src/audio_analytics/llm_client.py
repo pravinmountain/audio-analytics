@@ -10,19 +10,30 @@ client = genai.Client(
     api_key=GEMINI_API_KEY,
 )
 
+model = "gemini-3-flash-preview"
+
 generation_config = {
     'temperature': 1,
-    'max_output_tokens': 65536,
+    'max_output_tokens': 1000,
     'top_p': 0.95,
-    'thinking_level': 'high',
+    'thinking_level': 'low',
 }
 
-interaction = client.interactions.create(
-    model='models/gemini-3-flash-preview',
-    input="""What is reinforcement learning?""",
-    generation_config=generation_config,
+history = []
+
+chat = client.chats.create(
+    model=random.choice(models),
+    history=history
 )
 
-print(interaction.output_text)
+while True:
+    query = input(">>> ")
+    if query.lower() == "/exit":
+        print("Exiting...")
+        break
+    response = chat.send_message(query)
+    history.append({"role": "user", "content": query})
+    history.append({"role": "assistant", "content": response.text})
+    print(response.text)
 
-
+print(history)

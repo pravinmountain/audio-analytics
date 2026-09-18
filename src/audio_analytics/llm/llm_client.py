@@ -30,7 +30,3 @@ class LLM:
 
     def invoke(self, message):
         return self._model.invoke(message)
-
-llm = LLM(provider='ollama')
-response = llm.invoke("Hello!")
-print(response.content)

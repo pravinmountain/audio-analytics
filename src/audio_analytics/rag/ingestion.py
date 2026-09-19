@@ -38,12 +38,3 @@ class Chunker:
     @staticmethod
     def load_and_chunk(directory: str | Path) -> list[Document]:
         return Chunker().split(DocumentLoader().load(directory))
-
-docs = DocumentLoader().load(settings.knowledge_dir)
-print(f"Loaded {len(docs)} documents from {settings.knowledge_dir}")
-
-chunks = Chunker().split(docs)
-print(f"Created {len(chunks)} chunks")
-
-chunks = Chunker().load_and_chunk(settings.knowledge_dir)
-print(f"Loaded and chunked documents from {settings.knowledge_dir}")

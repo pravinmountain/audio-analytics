@@ -1,0 +1,3 @@
+The product offers a REST API with rate limiting of 100 requests per minute.
+The service uses Redis for caching session tokens.
+API keys rotate automatically every 90 days.

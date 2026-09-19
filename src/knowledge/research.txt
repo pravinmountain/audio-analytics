@@ -1,0 +1,3 @@
+Project Aurora's primary database is PostgreSQL.
+The embedding dimension is 768.
+Benchmarks show retrieval latency under 40 ms for top-5 queries.
